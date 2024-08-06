@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.ExerciseDetailPage"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Style="{StaticResource formAndHome}">
+            <Grid Style="{StaticResource DetailGrid}">
+                <StackLayout Padding="10">
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black"/>
+                    <Label Text="{Binding Name}" Style="{StaticResource DetailTitle}"></Label>
+                    <Grid MinimumHeightRequest="50">
+                    <Button Grid.Column="0" Text="Edit" IsVisible="{Binding IsTrainer}" Command="{Binding EditCommand}"/>
+                    <Button Grid.Column="1" Text="Delete" IsVisible="{Binding IsTrainer}" BackgroundColor="#dc3545" Command="{Binding DeleteCommand}"/>
+                    </Grid>
+                    <Image Source="https://www.healthdigest.com/img/gallery/the-male-celebrity-workout-routine-people-are-most-likely-to-try-exclusive-survey/l-intro-1663175120.jpg"/>
+                    <Label Text="Description:" Style="{StaticResource  DetailLabel}"/>
+                    <Label Text="{Binding Description}" Style="{StaticResource DetailLabelFromBinding}"/>
+                    <Label Text="Reps:" Style="{StaticResource DetailLabel}"/>
+                    <Label Text="{Binding Reps}" Style="{StaticResource DetailLabelFromBinding}"/>
+                    <Label Text="Sets:" Style="{StaticResource DetailLabel}"/>
+                    <Label Text="{Binding Sets}" Style="{StaticResource DetailLabelFromBinding}"/>
+                    <Label Text="Weight:" Style="{StaticResource DetailLabel}" />
+                    <Label Text="{Binding Weight, StringFormat='{0}kg'}" Style="{StaticResource DetailLabelFromBinding}"/>
+                </StackLayout>
+            </Grid>            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

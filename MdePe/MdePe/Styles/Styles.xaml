@@ -1,0 +1,282 @@
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="Label" x:Key="h1">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="24"></On>
+                    <On Platform="UWP" Value="32"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="HorizontalOptions">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="LayoutOptions">
+                    <On Platform="iOS" Value="Center"></On>
+                    <On Platform="Android" Value="Center"></On>
+                    <On Platform="UWP" Value="Center"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor" Value="{StaticResource primary}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="Margin" Value="30"/>
+    </Style>
+    <Style TargetType="Entry">
+        <Setter Property="PlaceholderColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="White"/>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="White"/>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontFamily" Value="CustomFontGym"></Setter>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="formLabel">
+        <Setter Property="TextColor">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="White"/>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Slider">
+        <Setter Property="ThumbColor" Value="{StaticResource primary}"/>
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="Format" Value="dd/MM/yyyy"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
+        <Setter Property="TextColor" Value="{StaticResource black}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontFamily" Value="CustomFontGym"/>
+        
+    </Style>
+
+    <Style TargetType="StackLayout" x:Key="formAndHome">
+        <Setter Property="Orientation">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="StackOrientation">
+                    <On Platform="UWP" Value="Vertical"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="HorizontalOptions">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="LayoutOptions">
+                    <On Platform="UWP" Value="CenterAndExpand"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalOptions">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="LayoutOptions">
+                    <On Platform="UWP" Value="Center"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Spacing" Value="10"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="WorkoutNameStyle">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="24"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="WorkoutDescriptionStyle">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="16"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor" Value="Gray"/>        
+    </Style>
+
+    <Style TargetType="Label" x:Key="WorkoutDurationStyle">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="14"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor" Value="DarkGray"/>        
+    </Style>
+
+    <Style x:Key="BottomButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#3498db"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="10,5"/>
+    </Style>
+
+    <Style x:Key="DetailGrid" TargetType="Grid">
+        
+        <Setter Property="BackgroundColor" Value="{StaticResource lightBlue}"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="DetailStackLayout" TargetType="StackLayout">
+        <Setter Property="WidthRequest">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="1000"></On>                    
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="UWP" Value="30"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="StackLayout" x:Key="ListViewStack">
+        <Setter Property="Orientation">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="StackOrientation">
+                    <On Platform="UWP" Value="Vertical"></On>
+                    <On Platform="Android" Value="Horizontal"></On>
+                </OnPlatform>
+            </Setter.Value>                
+        </Setter>
+        <Setter Property="Padding" Value="10"></Setter>
+    </Style>
+    
+    <Style x:Key="Listview" TargetType="ListView">
+        <Setter Property="RowHeight">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="Android" Value="50"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="DetailLabel">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="30"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="DetailLabelFromBinding">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="18"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"/>
+        <Setter Property="FontAttributes" Value="Italic"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="DetailTitle">
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="40"></On>
+                    <On Platform="Android" Value="20"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Image">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="HeightRequest">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="250"></On>
+                    <On Platform="Android" Value="200"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="WidthRequest">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="300"></On>
+                    <On Platform="Android" Value="200"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" x:Key="NavButtons">
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="UWP" Value="20"></On>
+                    <On Platform="Android" Value="10"></On>
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+
+    <Style TargetType="Image" x:Key="SettingsImage">
+        <Setter Property="Aspect" Value="AspectFit" ></Setter>
+        <Setter Property="HeightRequest" Value="200" ></Setter>
+        <Setter Property="WidthRequest" Value="200" ></Setter>
+        <Setter Property="HorizontalOptions" Value="Center" ></Setter>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" ></Setter>
+        <Setter Property="Margin" Value="0,0,0,20" ></Setter>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SettingsLabel">
+        <Setter Property="TextColor" Value="{StaticResource black}"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+    </Style>
+
+
+
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="CustomFontGym"></Setter>
+    </Style>
+
+
+</ResourceDictionary>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.ExercisePage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+
+        <StackLayout Style="{StaticResource formAndHome}" Padding="10">            
+            <Label Text="All exercises" Style="{StaticResource h1}" HorizontalOptions="Center"/>
+            <Button Text="Add exercise" IsVisible="{Binding IsTrainer}" Command="{Binding AddExerciseCommand}" BackgroundColor="#28a745"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black" />
+            <ListView x:Name="lstWorkouts" ItemsSource="{Binding Exercises}" SelectedItem="{Binding SelectedExercise}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" BackgroundColor="#ecf0f1" Margin="0,5,0,5" Spacing="5">
+                                <Label Text="{Binding Name}" Style="{StaticResource WorkoutNameStyle}"/>
+                                <Label Text="{Binding MuscleGroupName, StringFormat='Muscle group: {0}'}" Style="{StaticResource WorkoutDescriptionStyle}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid VerticalOptions="CenterAndExpand" ColumnSpacing="10" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Workouts" Command="{Binding GoToWorkoutPage}" BackgroundColor="#3498DB"  Style="{StaticResource BottomButtonStyle}" FontSize="Micro" />
+                <Button Grid.Column="1" Text="Exercises" Command="{Binding GoToExercisePage}"  BackgroundColor="#27AE60"  Style="{StaticResource BottomButtonStyle}" FontSize="Micro" />
+                <Button Grid.Column="2" Text="Settings" Command="{Binding GoToSettingsPage}"  BackgroundColor="#9B59B6"  Style="{StaticResource BottomButtonStyle}" FontSize="Micro"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

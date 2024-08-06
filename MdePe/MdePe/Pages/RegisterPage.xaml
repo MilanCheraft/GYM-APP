@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.RegisterPage"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource formAndHome}" HorizontalOptions="Center">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black"/>
+            <Label Style="{StaticResource h1}" Text="Register"/>
+            <Entry Placeholder="First name *" Text="{Binding FirstName}"/>
+            <Entry Placeholder="Last name *" Text="{Binding LastName}"/>
+            <Entry Placeholder="Email *" Keyboard="Email" Text="{Binding Email}"/>
+            <Entry IsPassword="True" Placeholder="Password *" Text="{Binding Password}"/>
+            <Entry IsPassword="True" Placeholder="Repeat password *" Text="{Binding RepeatPassword}"/>
+            <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                <Label Text="Weight (kg) *" Style="{StaticResource formLabel}"/>
+                <Entry Text="{Binding Weight}" Keyboard="Numeric" WidthRequest="150"/>
+            </StackLayout>
+            <Label Text="Length (cm) *" Style="{StaticResource formLabel}"/>
+            <Label Text="{Binding Length}" Style="{StaticResource formLabel}" WidthRequest="150"/>
+            <Slider Maximum="220" Minimum="130" Value="{Binding Length}"/>
+            <Label Text="Date of birth *" Style="{StaticResource formLabel}"/>
+            <DatePicker Date="{Binding DateOfBirth}"/>
+            <Button IsEnabled="{Binding CanExecute}" Text="Register" Command="{Binding RegisterCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

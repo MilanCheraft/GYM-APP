@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg"
+             x:Class="MdePe.Pages.WorkoutDetailsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black" />
+            <StackLayout Orientation="Horizontal" Style="{StaticResource formAndHome}">
+                <Grid Style="{StaticResource DetailGrid}" >
+                    <StackLayout >
+                        <Label Text="{Binding Name}" Style="{StaticResource DetailTitle}"></Label>
+
+                        <Label Padding="10,0,0,0" Text="Description" Style="{StaticResource  DetailLabel}"></Label>
+                        <Label Padding="10,0,0,0" Text="{Binding Description}" Style="{StaticResource DetailLabelFromBinding}"></Label>
+
+                        <Label Padding="10,0,0,0" Text="Duration" Style="{StaticResource  DetailLabel}"></Label>
+                        <Label Padding="10,0,0,0" Text="{Binding Duration, StringFormat='{0}min'}" Style="{StaticResource DetailLabelFromBinding}"></Label>
+                        <BoxView BackgroundColor="Black" HeightRequest="2"></BoxView>
+                        <Button Text="Edit" Command="{Binding EditWorkoutCommand}" IsVisible="{Binding IsTrainer}"></Button>
+                        <Button Text="Delete" Command="{Binding DeleteWorkoutCommand}" IsVisible="{Binding IsTrainer}" BackgroundColor="#dc3545" ></Button>
+                        <ListView x:Name="lstExercises" ItemsSource="{Binding Exercises}"  SelectedItem="{Binding SelectedExercise}" BackgroundColor="#ecf0f1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Style="{StaticResource ListViewStack}" >
+
+                                            <Label Text="{Binding Name}" Style="{StaticResource DetailLabel}"></Label>
+
+                                            <Label Text="{Binding Sets, StringFormat='{0} sets'}" Style="{StaticResource DetailLabelFromBinding}"></Label>
+
+                                            <Label Text="{Binding Reps, StringFormat='{0} reps'}" Style="{StaticResource DetailLabelFromBinding}"></Label>
+
+                                            <Label Text="{Binding Weight, StringFormat='{0}kg'}" Style="{StaticResource DetailLabelFromBinding}"></Label>
+
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

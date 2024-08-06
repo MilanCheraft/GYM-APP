@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.LoginPage"
+             NavigationPage.HasNavigationBar ="False"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource formAndHome}"  WidthRequest="500">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black"/>
+            <Label Style="{StaticResource h1}" Text="Login to your account"></Label>
+            <Entry IsPassword="False" Placeholder="Email" Keyboard="Email" Text="{Binding Email}"/>
+            <Entry IsPassword="True" Placeholder="Password" Text="{Binding Password}"/>
+            <Button IsEnabled="{Binding CanExecute}" Text="Login" Command="{Binding LoginCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

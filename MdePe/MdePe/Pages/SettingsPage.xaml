@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.SettingsPage"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout Margin="20" Orientation="Vertical" HorizontalOptions="Center" BackgroundColor="LightSteelBlue">
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black" />
+            <Grid>
+            <Button Text="All users" Command="{Binding AllUsersCommand}" IsVisible="{Binding IsTrainer}" HorizontalOptions="Start" VerticalOptions="Start"  Style="{StaticResource BottomButtonStyle}" FontSize="15"/>
+            <Button Text="Logout" Command="{Binding LogoutCommand}" HorizontalOptions="End" VerticalOptions="End" Style="{StaticResource BottomButtonStyle}" FontSize="15"/>
+            </Grid>
+            <Label Text="Settings" FontSize="30" FontAttributes="Bold" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,0,0,0" />
+
+            <Image Source="https://i.pinimg.com/564x/40/f1/40/40f1402d56e442669910cb86dbb8a627.jpg" 
+                   Style="{StaticResource SettingsImage}"/>
+
+            <Label Text="{Binding CurrentUser.DisplayName, StringFormat='Display name: {0}'}"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Style="{StaticResource SettingsLabel}"/>
+
+            <Label Text="{Binding CurrentUser.FirstName, StringFormat='First name: {0}'}"
+                   Style="{StaticResource SettingsLabel}" />
+
+            <Label Text="{Binding CurrentUser.LastName, StringFormat='Last name: {0}'}"
+                   Style="{StaticResource SettingsLabel}" />
+
+            <Label Text="{Binding Dob, StringFormat='Date of birth: {0}'}"
+                   Style="{StaticResource SettingsLabel}" />
+
+            <Label Text="{Binding CurrentUser.Weight, StringFormat='Weight: {0}kg'}"
+                   Style="{StaticResource SettingsLabel}" />
+
+            <Label Text="{Binding CurrentUser.Length, StringFormat='Lenght: {0}cm'}"
+                   Style="{StaticResource SettingsLabel}"/>
+            <Button Text="Update profile info" Command="{Binding UpdateProfileCommand}"/>
+
+            <Grid VerticalOptions="CenterAndExpand" ColumnSpacing="10" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Workouts" Command="{Binding GoToWorkoutPage}" BackgroundColor="#3498DB"  Style="{StaticResource BottomButtonStyle}" FontSize="Micro" />
+                <Button Grid.Column="1" Text="Exercises" Command="{Binding GoToExercisePage}"  BackgroundColor="#27AE60"  Style="{StaticResource BottomButtonStyle}" FontSize="Micro" />
+                <Button Grid.Column="2" Text="Settings" Command="{Binding GoToSettingsPage}"  BackgroundColor="#9B59B6"  Style="{StaticResource BottomButtonStyle}" FontSize="Micro"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

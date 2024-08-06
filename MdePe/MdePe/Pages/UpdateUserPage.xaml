@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.UpdateUserPage"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Style="{StaticResource formAndHome}">
+            <Grid Style="{StaticResource DetailGrid}">
+                <StackLayout Padding="10">
+                    <Label Text="Update user information" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" />
+                   
+                    <Label Text="First Name" />
+                    <Entry Text="{Binding FirstName}" />
+
+                    <Label Text="Last Name" />
+                    <Entry Text="{Binding LastName}" />
+
+                    <Label Text="Display name" />
+                    <Entry Text="{Binding DisplayName}" />          
+
+                    <Label Text="Weight (kg)" />
+                    <Entry Text="{Binding Weight}" Keyboard="Numeric" />
+
+                    <Label Text="Height (cm)" />
+                    <Entry Text="{Binding Length}" Keyboard="Numeric" />
+                    
+                    <Button Text="Update" Command="{Binding SaveUser}" />
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

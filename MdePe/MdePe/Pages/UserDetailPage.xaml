@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.UserDetailPage"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource formAndHome}" Padding="10">
+            <Label Text="{Binding CurrentUser.Email, StringFormat='All workouts from: {0}'}" Style="{StaticResource h1}" HorizontalOptions="Center"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black"/>
+            <Label Text="No workouts found" Style="{StaticResource h1}" IsVisible="{Binding HasNoWorkouts}"/>
+            <ListView x:Name="lstWorkouts" ItemsSource="{Binding Workouts}" SelectedItem="{Binding SelectedWorkout}" Style="{StaticResource Listview}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" BackgroundColor="#ecf0f1" Margin="0,5,0,5" Spacing="5" >
+                                <Label Text="{Binding Name}" Style="{StaticResource WorkoutNameStyle}"/>
+                                <Label Text="{Binding Description, StringFormat='Description: {0}'}" Style="{StaticResource WorkoutDescriptionStyle}"/>
+                                <Label Text="{Binding Duration, StringFormat='Duration: {0} min'}" Style="{StaticResource WorkoutDurationStyle}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

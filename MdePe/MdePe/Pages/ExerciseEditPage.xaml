@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.ExerciseEditPage"
+             BackgroundImageSource="https://cdn.wallpapersafari.com/23/0/Qpbwdo.jpg">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Style="{StaticResource formAndHome}">
+            <Grid Style="{StaticResource DetailGrid}">
+                <StackLayout Padding="10">
+                    <Label Text="Name:" Style="{StaticResource DetailTitle}"></Label>
+                    <Entry Text="{Binding Name}"/>
+                    <Label Text="Description:" Style="{StaticResource  DetailLabel}"/>
+                    <Entry  Text="{Binding Description}"/>
+                    <Label Text="MusleGroup" Style="{StaticResource DetailLabel}"/>
+                    <Picker ItemsSource="{Binding MuscleGroups}" 
+                            SelectedItem="{Binding SelectedMuscleGroupEdit}" 
+                            SelectedIndex="{Binding MuscleGroupIndex}" />
+                    <Label Text="Reps:" Style="{StaticResource DetailLabel}"/>
+                    <Entry Text="{Binding Reps}" Keyboard="Numeric"/>
+                    <Label Text="Sets:" Style="{StaticResource DetailLabel}"/>
+                    <Entry Text="{Binding Sets}" Keyboard="Numeric"/>
+                    <Label Text="Weight:" Style="{StaticResource DetailLabel}" />
+                    <Entry Text="{Binding Weight}" Keyboard="Numeric"/>
+                    <Button Text="Save" Command="{Binding SaveEditCommand}" BackgroundColor="#28a745"/>
+                    <Button Text="Cancel" Command="{Binding CancelEditCommand}" BackgroundColor="#dc3545"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

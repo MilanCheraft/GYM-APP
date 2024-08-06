@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MdePe.Pages.WorkoutCreatePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Style="{StaticResource formAndHome}">
+            <Grid Style="{StaticResource DetailGrid}">
+                <StackLayout Padding="10">
+                    <Label Text="Update workout" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" />
+
+                    <Label Text="Workout name" />
+                    <Entry Text="{Binding Name}" />
+
+                    <Label Text="Description" />
+                    <Entry Text="{Binding Description}" />
+
+                    <Label Text="Duration" />
+                    <Entry Text="{Binding Duration}" Keyboard="Numeric" />
+
+                    <Label Text="Musle group" />
+                    <Picker ItemsSource="{Binding MuscleGroups}" 
+                  SelectedItem="{Binding SelectedMuscleGroup}" 
+                  SelectedIndex="0" />
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="Black"/>
+                    <CollectionView ItemsSource="{Binding SelectedExercises}" SelectionMode="None" SelectedItems="{Binding IsSelected}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <CheckBox IsChecked="{Binding IsSelected}" />
+                                    <Label Text="{Binding Exercise.Name}" VerticalOptions="Center" />
+                                    <Label Text="{Binding Exercise.MuscleGroupName.Name, StringFormat='({0})'}" VerticalOptions="Center" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Button Text="Create" Command="{Binding CreateCommand}"></Button>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
